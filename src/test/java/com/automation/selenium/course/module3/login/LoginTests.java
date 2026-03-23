@@ -98,7 +98,75 @@ public class LoginTests {
         		);   
 
     }
-       @AfterMethod
+
+   
+    @Test(dataProvider = "invalidUserData", dataProviderClass = com.automation.selenium.course.module3.dataprovider.LoginDataProvider.class)
+    public void invalidUserLoginTest(String username, String password) {	        
+        //username_id,  password, iniciarSesionBtn
+        WebElement usernameInput = driver.findElement(By.id("username_id"));
+        usernameInput.sendKeys(username);
+        
+        WebElement passwordInput = driver.findElement(By.id("password"));
+        passwordInput.sendKeys(password);
+        
+        WebElement loginButton = driver.findElement(By.id("iniciarSesionBtn"));
+        loginButton.click();
+        
+        //loginMessageEyebrow, loginMessageTitle,  loginMessageBody
+        
+        WebElement loginMessageEyebrow = driver.findElement(By.id("loginMessageEyebrow"));
+        WebElement loginMessageTitle = driver.findElement(By.id("loginMessageTitle"));
+        WebElement loginMessageBody = driver.findElement(By.id("loginMessageBody"));
+        
+        Assert.assertEquals(loginMessageEyebrow.getText(), "CREDENCIALES INVALIDAS", "El texto del eyebrow no es correcto");
+        Assert.assertEquals(loginMessageTitle.getText(), "Usuario o contrasena incorrecto", "El texto del titulo no es correcto");        
+        Assert.assertEquals(
+        		loginMessageBody.getText(), 
+        		"La combinacion ingresada no es valida. Revisa la seccion de credenciales de prueba e intenta nuevamente.", 
+        		"El texto del body no es correcto"
+        		);   
+
+    }
+
+    
+    /*
+     * 
+		usuario					| password |
+		usuario.inhabilitado    | Off1234! |
+		usuario.inhabilitado.01 | Off1234! |
+		usuario.inhabilitado.02 | Off1234! |
+		usuario.inhabilitado.03 | Off1234! |
+     * */
+  
+    
+ @Test(dataProvider = "suspendedUserData", dataProviderClass = com.automation.selenium.course.module3.dataprovider.LoginDataProvider.class)
+ public void suspendedUserLoginTest(String username, String password) {	        
+     //username_id,  password, iniciarSesionBtn
+     WebElement usernameInput = driver.findElement(By.id("username_id"));
+     usernameInput.sendKeys(username);
+     
+     WebElement passwordInput = driver.findElement(By.id("password"));
+     passwordInput.sendKeys(password);
+     
+     WebElement loginButton = driver.findElement(By.id("iniciarSesionBtn"));
+     loginButton.click();
+     
+     //loginMessageEyebrow, loginMessageTitle,  loginMessageBody
+     
+     WebElement loginMessageEyebrow = driver.findElement(By.id("loginMessageEyebrow"));
+     WebElement loginMessageTitle = driver.findElement(By.id("loginMessageTitle"));
+     WebElement loginMessageBody = driver.findElement(By.id("loginMessageBody"));
+     
+     Assert.assertEquals(loginMessageEyebrow.getText(), "CUENTA INHABILITADA", "El texto del eyebrow no es correcto");
+     Assert.assertEquals(loginMessageTitle.getText(), "Usuario inhabilitado", "El texto del titulo no es correcto");        
+     Assert.assertEquals(
+     		loginMessageBody.getText(), 
+     		"La cuenta no tiene acceso habilitado. Necesitas reactivacion para iniciar sesion.", 
+     		"El texto del body no es correcto"
+     		);   
+
+ }
+     @AfterMethod
     public void tearDown() {
     	System.out.println("Fin de setUp");
     	executedTests++;
