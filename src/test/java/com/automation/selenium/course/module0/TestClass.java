@@ -25,13 +25,13 @@ public class TestClass {
 
 		driver.manage().window().maximize();
 		
-		driver.get("https://seleniumjavalocators.vercel.app/pages/login");
+		driver.get("https://seleniumjavalocators.vercel.app/pages/login.html");
 		System.out.println("Titulo: " + driver.getTitle());
 		System.out.println("URL: " + driver.getCurrentUrl());
 		
 		//System.out.println(driver.getPageSource());
 		
-		driver.navigate().to("https://seleniumjavalocators.vercel.app/pages/registro");
+		driver.navigate().to("https://seleniumjavalocators.vercel.app/pages/registro.html");
 		
 		System.out.println("Titulo: " + driver.getTitle());
 		System.out.println("URL: " + driver.getCurrentUrl());
