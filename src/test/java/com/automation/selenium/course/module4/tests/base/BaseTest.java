@@ -1,4 +1,4 @@
-package com.automation.selenium.course.module4.login;
+package com.automation.selenium.course.module4.tests.base;
 
 import java.time.Duration;
 
@@ -9,12 +9,15 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 
+import com.automation.selenium.course.module4.pages.LoginPage;
+
 public class BaseTest {
 	protected WebDriver driver;
     private static final String pageUrl = "https://seleniumjavalocators.vercel.app/pages/login.html";
 
     private long classStartTime;
     private int executedTests;
+    protected LoginPage loginPage;
     
     @BeforeClass
     public void beforeClass() {
@@ -33,6 +36,9 @@ public class BaseTest {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         driver.manage().window().maximize();
         driver.get(pageUrl);
+        
+        loginPage = new LoginPage(driver);
+        
 	}
 	
    @AfterMethod
