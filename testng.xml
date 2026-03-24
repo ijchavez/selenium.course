@@ -1,16 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Suite">
-  <test thread-count="3" parallel="classes" name="Test">
+  <test thread-count="5" name="Test">
     <classes>
-      <class name="com.automation.selenium.course.module2.c.Assertions.AssertionsTests"/>
-      <class name="com.automation.selenium.course.module2.a.Locators.LocatorsTests"/>
-      <class name="com.automation.selenium.course.module2.b.BooleanDriverFunctions.BooleanDriverFunctions"/>
-      <class name="com.automation.selenium.course.module2.a.Locators.XpathLocatorsTests"/>
-      <class name="com.automation.selenium.course.module1.SeleniumTests"/>
-      <class name="com.automation.selenium.course.module2.a.Locators.CssSelectorLocatorsTests"/>
-      <class name="com.automation.selenium.course.module3.login.LoginTests"/>
-      <class name="com.automation.selenium.course.module0.TestClass"/>
+      <class name="com.automation.selenium.course.module4.login.UnsuccesfulLoginTests"/>
+      <class name="com.automation.selenium.course.module4.login.BaseTest"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
