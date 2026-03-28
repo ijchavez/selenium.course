@@ -9,15 +9,19 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 
+import com.automation.selenium.course.module4.pages.DashboardPage;
+import com.automation.selenium.course.module4.pages.LandingPage;
 import com.automation.selenium.course.module4.pages.LoginPage;
 
 public class BaseTest {
 	protected WebDriver driver;
-    private static final String pageUrl = "https://seleniumjavalocators.vercel.app/pages/login.html";
+    private static final String pageUrl = "https://seleniumjavalocators.vercel.app";
 
     private long classStartTime;
     private int executedTests;
+    protected LandingPage landingPage;
     protected LoginPage loginPage;
+    protected DashboardPage dashboardPage;
     
     @BeforeClass
     public void beforeClass() {
@@ -37,7 +41,7 @@ public class BaseTest {
         driver.manage().window().maximize();
         driver.get(pageUrl);
         
-        loginPage = new LoginPage(driver);
+        landingPage = new LandingPage(driver);
         
 	}
 	

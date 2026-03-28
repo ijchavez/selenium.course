@@ -46,6 +46,12 @@ public class LoginPage {
 		driver.findElement(LoginButton).click();
 	}
 	
+	public DashboardPage doClickOnLoginButtonExpectSuccess() {
+		driver.findElement(LoginButton).click();
+		
+		return new DashboardPage(driver);
+	}
+	
 	public void checkSuccessfulLoginMessageEyebrow() {
 		Assert.assertEquals(
 				driver.findElement(loginMessageEyebrow).getText(), 

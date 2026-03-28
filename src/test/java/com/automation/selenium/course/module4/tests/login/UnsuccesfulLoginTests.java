@@ -10,7 +10,9 @@ public class UnsuccesfulLoginTests extends BaseTest {
      * */
    
     @Test(description = "Blocked User Login Test", priority = 1)
-    public void blockedUserLoginTest() {	        
+    public void blockedUserLoginTest() {	
+    	loginPage = landingPage.doClickOnLoginLink();
+    	
         loginPage.doFillUsernameInput("usuario.bloqueado");
         loginPage.doFillPasswordInput("Lock1234!");
         
@@ -26,7 +28,9 @@ public class UnsuccesfulLoginTests extends BaseTest {
     	  dependsOnMethods = "sampleLoginTest",	
     	  dataProvider = "invalidUserData", 
     	  dataProviderClass = com.automation.selenium.course.module3.dataprovider.LoginDataProvider.class)
-    public void invalidUserLoginTest(String username, String password) {	        
+    public void invalidUserLoginTest(String username, String password) {
+    	loginPage = landingPage.doClickOnLoginLink();
+    	
         loginPage.doFillUsernameInput(username);
         loginPage.doFillPasswordInput(password);
         
@@ -41,7 +45,9 @@ public class UnsuccesfulLoginTests extends BaseTest {
 	 @Test(description = "Suspended User Login Test", 
 		   dataProvider = "suspendedUserData", 
 		   dataProviderClass = com.automation.selenium.course.module3.dataprovider.LoginDataProvider.class)
-	 public void suspendedUserLoginTest(String username, String password) {	        
+	 public void suspendedUserLoginTest(String username, String password) {
+	   	loginPage = landingPage.doClickOnLoginLink();
+	    	
         loginPage.doFillUsernameInput(username);
         loginPage.doFillPasswordInput(password);
         
