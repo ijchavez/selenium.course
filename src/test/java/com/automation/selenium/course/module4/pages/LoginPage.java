@@ -4,9 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
-public class LoginPage {
-	private WebDriver driver;
-	
+public class LoginPage extends BasePage{
 	private By usernameInput = By.id("username_id");
 	private By passwordInput = By.id("password");
 	private By LoginButton = By.id("iniciarSesionBtn");
@@ -29,7 +27,7 @@ public class LoginPage {
 	
 	
 	public LoginPage(WebDriver driver) {
-		this.driver = driver;
+		super(driver);
 	}
 	
 	public void doFillUsernameInput(String username) {

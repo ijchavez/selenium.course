@@ -1,4 +1,4 @@
-package com.automation.selenium.course.module4.testngreportfromxml;
+package com.automation.selenium.course.module4.support.testngreportfromxml;
 
 public class App {
     public static void main(String[] args) {

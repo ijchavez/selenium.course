@@ -5,14 +5,12 @@ import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
 
-public class DashboardPage {
-	private WebDriver driver;
-	
+public class DashboardPage extends BasePage{
 	private By profileUser = By.id("profileUser");
 	private By loginButton = By.xpath("//a[@href='./login.html']");
 	
 	public DashboardPage(WebDriver driver) {
-		this.driver = driver;
+		super(driver);
 	}
 	
 	public void checkProfileUser(String expectedUsername) {

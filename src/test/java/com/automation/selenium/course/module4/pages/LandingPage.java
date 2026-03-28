@@ -4,14 +4,12 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 
-public class LandingPage {
-	private WebDriver driver;
-	
+public class LandingPage extends BasePage{
 	private By loginLink = By.cssSelector("a[href='./pages/login.html']");
 	private By registrationLink = By.cssSelector("a[href='./pages/registro.html']");
 	
 	public LandingPage(WebDriver driver) {
-		this.driver = driver;
+		super(driver);
 	}
 	
 	public LoginPage doClickOnLoginLink() {
