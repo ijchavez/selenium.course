@@ -1,4 +1,4 @@
-package com.automation.selenium.course.module4.dataprovider;
+package com.automation.selenium.course.module4.support.data.dataprovider;
 
 import org.testng.annotations.DataProvider;
 

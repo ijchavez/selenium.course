@@ -1,5 +1,11 @@
 package com.automation.selenium.course.module4.pages;
 
-public class BasePage {
+import org.openqa.selenium.WebDriver;
+
+public abstract class BasePage {
+	protected WebDriver driver;
 	
+	public BasePage(WebDriver driver) {
+		this.driver = driver;
+	}
 }

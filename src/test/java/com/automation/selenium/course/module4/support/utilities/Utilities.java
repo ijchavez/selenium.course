@@ -1,4 +1,4 @@
-package com.automation.selenium.course.module4.utilities;
+package com.automation.selenium.course.module4.support.utilities;
 
 import java.io.File;
 import java.io.FileInputStream;

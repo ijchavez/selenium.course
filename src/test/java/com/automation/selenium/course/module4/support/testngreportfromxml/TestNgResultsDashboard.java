@@ -1,4 +1,4 @@
-package com.automation.selenium.course.module4.testngreportfromxml;
+package com.automation.selenium.course.module4.support.testngreportfromxml;
 
 import java.io.IOException;
 import java.io.InputStream;

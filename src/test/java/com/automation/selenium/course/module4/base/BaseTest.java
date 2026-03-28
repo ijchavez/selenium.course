@@ -1,4 +1,4 @@
-package com.automation.selenium.course.module4.tests.base;
+package com.automation.selenium.course.module4.base;
 
 import java.time.Duration;
 
@@ -9,20 +9,13 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 
-import com.automation.selenium.course.module4.pages.DashboardPage;
-import com.automation.selenium.course.module4.pages.LandingPage;
-import com.automation.selenium.course.module4.pages.LoginPage;
-
 public class BaseTest {
 	protected WebDriver driver;
     private static final String pageUrl = "https://seleniumjavalocators.vercel.app";
 
     private long classStartTime;
     private int executedTests;
-    protected LandingPage landingPage;
-    protected LoginPage loginPage;
-    protected DashboardPage dashboardPage;
-    
+   
     @BeforeClass
     public void beforeClass() {
     	//Se ejecuta una sola vez, antes de correr los tests de esa clase en particular
@@ -40,9 +33,7 @@ public class BaseTest {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         driver.manage().window().maximize();
         driver.get(pageUrl);
-        
-        landingPage = new LandingPage(driver);
-        
+               
 	}
 	
    @AfterMethod

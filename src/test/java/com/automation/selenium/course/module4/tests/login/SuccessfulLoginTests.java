@@ -2,7 +2,10 @@ package com.automation.selenium.course.module4.tests.login;
 
 import org.testng.annotations.Test;
 
-import com.automation.selenium.course.module4.tests.base.BaseTest;
+import com.automation.selenium.course.module4.base.BaseTest;
+import com.automation.selenium.course.module4.pages.DashboardPage;
+import com.automation.selenium.course.module4.pages.LandingPage;
+import com.automation.selenium.course.module4.pages.LoginPage;
 
 public class SuccessfulLoginTests extends BaseTest {
     
@@ -13,12 +16,13 @@ public class SuccessfulLoginTests extends BaseTest {
 	
     @Test(description = "Successful User Login Test")
     public void successfulUserLoginTest() {
-    	loginPage = landingPage.doClickOnLoginLink();
+    	LandingPage landingPage = new LandingPage(driver);
+    	LoginPage loginPage = landingPage.doClickOnLoginLink();
     	
         loginPage.doFillUsernameInput(USERNAME);
         loginPage.doFillPasswordInput("Qa1234!");
         
-        dashboardPage = loginPage.doClickOnLoginButtonExpectSuccess();
+        DashboardPage dashboardPage = loginPage.doClickOnLoginButtonExpectSuccess();
         
         loginPage.checkSuccessfulLoginMessageEyebrow();
         loginPage.checkSuccessfulLoginMessageTitle();

@@ -2,7 +2,9 @@ package com.automation.selenium.course.module4.tests.login;
 
 import org.testng.annotations.Test;
 
-import com.automation.selenium.course.module4.tests.base.BaseTest;
+import com.automation.selenium.course.module4.base.BaseTest;
+import com.automation.selenium.course.module4.pages.LandingPage;
+import com.automation.selenium.course.module4.pages.LoginPage;
 
 public class UnsuccesfulLoginTests extends BaseTest {
     /*
@@ -10,8 +12,9 @@ public class UnsuccesfulLoginTests extends BaseTest {
      * */
    
     @Test(description = "Blocked User Login Test", priority = 1)
-    public void blockedUserLoginTest() {	
-    	loginPage = landingPage.doClickOnLoginLink();
+    public void blockedUserLoginTest() {
+    	LandingPage landingPage = new LandingPage(driver);
+    	LoginPage loginPage = landingPage.doClickOnLoginLink();
     	
         loginPage.doFillUsernameInput("usuario.bloqueado");
         loginPage.doFillPasswordInput("Lock1234!");
@@ -29,7 +32,8 @@ public class UnsuccesfulLoginTests extends BaseTest {
     	  dataProvider = "invalidUserData", 
     	  dataProviderClass = com.automation.selenium.course.module3.dataprovider.LoginDataProvider.class)
     public void invalidUserLoginTest(String username, String password) {
-    	loginPage = landingPage.doClickOnLoginLink();
+    	LandingPage landingPage = new LandingPage(driver);
+    	LoginPage loginPage = landingPage.doClickOnLoginLink();
     	
         loginPage.doFillUsernameInput(username);
         loginPage.doFillPasswordInput(password);
@@ -46,7 +50,8 @@ public class UnsuccesfulLoginTests extends BaseTest {
 		   dataProvider = "suspendedUserData", 
 		   dataProviderClass = com.automation.selenium.course.module3.dataprovider.LoginDataProvider.class)
 	 public void suspendedUserLoginTest(String username, String password) {
-	   	loginPage = landingPage.doClickOnLoginLink();
+    	LandingPage landingPage = new LandingPage(driver);
+    	LoginPage loginPage = landingPage.doClickOnLoginLink();
 	    	
         loginPage.doFillUsernameInput(username);
         loginPage.doFillPasswordInput(password);
